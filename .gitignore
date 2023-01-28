@@ -140,3 +140,5 @@ terraform.tfstate.d/
 # MacOS
 .DS_Store
 
+# Jupyter
+.ipynb_checkpoints/
