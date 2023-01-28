@@ -142,3 +142,7 @@ terraform.tfstate.d/
 
 # Jupyter
 .ipynb_checkpoints/
+
+
+# week_1 docker volumn bind mount for postgres
+ny_taxi_postgres_data/**
