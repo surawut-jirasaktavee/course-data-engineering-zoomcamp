@@ -127,3 +127,16 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+
+# Keys
+keys/*
+
+# Terraform 
+.terraform/
+terraform.tfstate.d/
+.terraform.lock.hcl
+
+# MacOS
+.DS_Store
+
