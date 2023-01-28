@@ -145,4 +145,4 @@ terraform.tfstate.d/
 
 
 # week_1 docker volumn bind mount for postgres
-ny_taxi_postgres_data/**
+ny_taxi_postgres_data/
