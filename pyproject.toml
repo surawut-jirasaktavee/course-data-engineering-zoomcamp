@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "course-data-engineering-zoomcamp"
+version = "0.1.0"
+description = "This repository will demonstrate what I can learn from this course!"
+authors = ["prem-surawut <surawut.jirasaktavee@gmail.com>"]
+readme = "README.md"
+packages = [{include = "course_data_engineering_zoomcamp"}]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "1.5.2"
+prefect = "2.7.7"
+prefect-sqlalchemy = "0.2.2"
+prefect-gcp = {version = "0.2.4", extras = ["cloud_storage"]}
+protobuf = "4.21.11"
+pyarrow = "10.0.1"
+pandas-gbq = "0.18.1"
+psycopg2-binary = "2.9.5"
+SQLAlchemy = "1.4.46"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
