@@ -18,6 +18,7 @@ pyarrow = "10.0.1"
 pandas-gbq = "0.18.1"
 psycopg2-binary = "2.9.5"
 SQLAlchemy = "1.4.46"
+greenlet = "^2.0.2"
 
 [tool.poetry.group.dev.dependencies]
 jupyter = "^1.0.0"
