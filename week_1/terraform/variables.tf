@@ -4,10 +4,11 @@ locals {
       environment = terraform.workspace
     }
   )
-  project_id       = "winter-campus-375209"
-  region           = "asia-southeast1"
-  data_lake_bucket = "data_lake"
-  project_name     = "data-engineering-zoomcamp"
+  project_id   = "winter-campus-375209"
+  region       = "asia-southeast1"
+  prefix       = "data_lake"
+  bucket_name  = "taxi-trip-dataset"
+  project_name = "data-engineering-zoomcamp"
   #   credentials      = file("${path.module}/../../keys/terraform-sa.json")
 }
 
@@ -29,5 +30,5 @@ variable "storage_class" {
 variable "BQ_DATASET" {
   description = "BigQuery Dataset that raw data (from GCS) will be written to"
   type        = string
-  default     = "trips_dataset"
+  default     = "taxi_trips_dataset"
 }

@@ -8,7 +8,7 @@ Terraform will perform the following actions:
   # google_bigquery_dataset.dataset will be created
   + resource "google_bigquery_dataset" "dataset" {
       + creation_time              = (known after apply)
-      + dataset_id                 = "trips_dataset"
+      + dataset_id                 = "taxi_trips_dataset"
       + delete_contents_on_destroy = false
       + etag                       = (known after apply)
       + id                         = (known after apply)
@@ -53,7 +53,7 @@ Terraform will perform the following actions:
       + force_destroy               = true
       + id                          = (known after apply)
       + location                    = "ASIA-SOUTHEAST1"
-      + name                        = "data_lake_data-engineering-zoomcamp"
+      + name                        = "data_lake_taxi-trip-dataset"
       + project                     = (known after apply)
       + public_access_prevention    = (known after apply)
       + self_link                   = (known after apply)
