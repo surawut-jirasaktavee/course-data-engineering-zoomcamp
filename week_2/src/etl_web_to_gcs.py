@@ -1,18 +1,18 @@
 # type: ignore
 # pylint: disable=missing-module-docstring
 from pathlib import Path
+from datetime import timedelta  # pylint: disable=import-error
+
 import pandas as pd
+
 from prefect import flow, task  # pylint: disable=import-error
 from prefect_gcp.cloud_storage import GcsBucket  # pylint: disable=import-error
+from prefect.tasks import task_input_hash # pylint: disable=ungrouped-imports, import-error
 
-# from random import randint  # pylint: disable=wrong-import-order
 
-
-@task(retries=3)
+@task(retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
-    # if randint(0, 1) > 0:
-    #     raise Exception
 
     df = pd.read_csv(dataset_url)  # pylint: disable=invalid-name
     return df
