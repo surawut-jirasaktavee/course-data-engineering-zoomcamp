@@ -54,7 +54,7 @@ def etl_web_to_gcs() -> None:
     """The main ETL function"""
     color = "green"
     year = 2020
-    month = 11
+    month = 1
     dataset_file = f"{color}_tripdata_{year}-{month:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"  # pylint: disable=line-too-long
 
