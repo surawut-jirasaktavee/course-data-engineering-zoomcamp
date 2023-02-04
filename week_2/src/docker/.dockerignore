@@ -1,0 +1,5 @@
+data/
+block/
+__pycache/
+.prefectignore
+.DS_Stone
