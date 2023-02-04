@@ -2,6 +2,13 @@ pandas==1.5.2
 prefect==2.7.7
 prefect-sqlalchemy==0.2.2
 prefect-gcp[cloud_storage]==0.2.4
+prefect-slack==0.1.2
+prefect-alert==0.1.3
+prefect-docker==0.1.0
+prefect-dbt==0.2.7
+prefect-github==0.1.5
+prefect-great_expectations==0.1.0
+prefect-shell==0.1.4
 protobuf==4.21.11
 pyarrow==10.0.1
 pandas-gbq==0.18.1
