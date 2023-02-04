@@ -74,9 +74,9 @@ def etl_parent_flow(months: list[int], year: int, color: str):  # pylint: disabl
 if __name__ == "__main__":
 
     color = "green" # pylint: disable=invalid-name
-    year = 2020 # pylint: disable=invalid-name
+    year = 2019 # 2020 # pylint: disable=invalid-name
     months = [
-        11,
-    ]
+        4,
+    ] # 11
 
     etl_parent_flow(months, year, color)
