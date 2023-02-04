@@ -1,0 +1,63 @@
+###
+### A complete description of a Prefect Deployment for flow 'etl-parent-flow'
+###
+name: etl_web_to_gcs_yellow_2_3
+description: run parametize value to main etl function
+version: v1
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags:
+- local-infra, local-storage, gcs-to-bq
+parameters:
+  months:
+  - 2
+  - 3
+  year: 2019
+  color: yellow
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: etl-parent-flow
+manifest_path: null
+infrastructure:
+  type: process
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  stream_output: true
+  working_dir: null
+  _block_document_id: b883bd88-29c2-4c27-98e2-cda2e64c3a40
+  _block_document_name: anonymous-ac2bb5db-ff10-4d4b-a169-e79033015fbf
+  _is_anonymous: true
+  block_type_slug: process
+  _block_type_slug: process
+storage: null
+path: /Users/premsurawut/Github/Data-Engineer/course-data-engineering-zoomcamp/week_2/src/flows
+entrypoint: etl_web_to_gcs_parametize.py:etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      position: 1
+      type: integer
+    color:
+      title: color
+      position: 2
+      type: string
+  required:
+  - months
+  - year
+  - color
+  definitions: null
