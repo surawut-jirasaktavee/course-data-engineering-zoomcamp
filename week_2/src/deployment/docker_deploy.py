@@ -12,9 +12,14 @@ docker_container_block = DockerContainer.load("container-prefect-flow")
 docker_dep = Deployment.build_from_flow(
     flow=etl_web_to_gcs,
     name="docker-flow",
+    description="load data from web and save it to gcs",
+    version="1",
     infrastructure=docker_container_block,
     storage=github_block,
-    # tag=["docker-infra", "github-storage", "web-to-gcs"],
+    work_queue_name="default",
+    path="",
+    entrypoint="week_2/src/flows/etl_web_to_gcs.py:etl_web_to_gcs",
+    tags=["docker-infra", "github-storage", "web-to-gcs"],
 )
 
 

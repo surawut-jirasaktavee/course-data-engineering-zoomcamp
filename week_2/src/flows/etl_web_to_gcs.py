@@ -44,7 +44,7 @@ def write_local(
 @task()
 def write_gcs(path: Path) -> None:
     """Upload local parquet file to GCS"""
-    gcs_block = GcsBucket.load("gcs-taxi-trip-data")
+    gcs_block = GcsBucket.load("gcs-taxi-trip-data", validate=False)
     gcs_block.upload_from_path(from_path=path, to_path=path)
     return
 

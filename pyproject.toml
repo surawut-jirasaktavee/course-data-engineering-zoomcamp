@@ -5,7 +5,10 @@ description = "This repository will demonstrate what I can learn from this cours
 authors = ["prem-surawut <surawut.jirasaktavee@gmail.com>"]
 readme = "README.md"
 repository = "https://github.com/surawut-jirasaktavee/course-data-engineering-zoomcamp"
-packages = [{ include = "course_data_engineering_zoomcamp" }]
+packages = [
+    { include = "course_data_engineering_zoomcamp" },
+    { include = "course_data_engineering_zoomcmap/week_2/src/flows/*.py"},
+]
 
 [tool.poetry.dependencies]
 python = "^3.9"
