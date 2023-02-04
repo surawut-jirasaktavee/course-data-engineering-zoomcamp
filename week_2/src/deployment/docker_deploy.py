@@ -19,7 +19,7 @@ docker_dep = Deployment.build_from_flow(
     infrastructure=docker_container_block,
     work_queue_name="default",
     path="",
-    entrypoint="week_2/src/deployment/etl_web_to_gcs_parametize_4.py:etl_web_to_gcs",
+    entrypoint="week_2/src/deployment/etl_web_to_gcs_parametize_4.py:etl_parent_flow",
     parameters={"months": [11], "year": 2022, "color": "green"},
     output="./week_2/src/deployment/prefect-docker-deployment-web-to-gcs-green.yaml",
 )
