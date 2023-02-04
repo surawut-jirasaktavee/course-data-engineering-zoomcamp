@@ -10,7 +10,7 @@ from prefect_gcp.cloud_storage import GcsBucket  # pylint: disable=import-error
 
 
 credentials_block = GcpCredentials(
-    service_account_info={}  # enter your credentials info or use the file method.
+    service_account_file="/Users/premsurawut/Github/Data-Engineer/course-data-engineering-zoomcamp/keys/prefect-sa.json"  # enter your credentials info or use the file method.
 )
 credentials_block.save("prefect-data-eng-zoomcamp-sa", overwrite=True)
 
