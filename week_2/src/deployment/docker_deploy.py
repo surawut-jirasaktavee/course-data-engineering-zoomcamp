@@ -1,6 +1,6 @@
 # type: ignore
 # pylint: disable=missing-module-docstring
-from flows.etl_web_to_gcs_parametize_4 import etl_web_to_gcs  # pylint: disable=import-error
+from etl_web_to_gcs_parametize_4 import etl_web_to_gcs  # pylint: disable=import-error
 
 from prefect.deployments import Deployment  # pylint: disable=import-error
 from prefect.infrastructure.docker import DockerContainer # pylint: disable=import-error, ungrouped-imports
@@ -19,7 +19,7 @@ docker_dep = Deployment.build_from_flow(
     infrastructure=docker_container_block,
     work_queue_name="default",
     path="",
-    entrypoint="week_2/src/flows/etl_web_to_gcs_parametize_4.py:etl_web_to_gcs",
+    entrypoint="week_2/src/deployment/etl_web_to_gcs_parametize_4.py:etl_web_to_gcs",
     params={"months": [11], "year": 2022, "color": "green"},
     output="prefect-docker-deployment-web-to-gcs-green",
 )

@@ -8,6 +8,8 @@ repository = "https://github.com/surawut-jirasaktavee/course-data-engineering-zo
 packages = [
     { include = "course_data_engineering_zoomcamp" },
     { include = "course_data_engineering_zoomcmap/week_2/src/flows/*.py"},
+    { include = "course_data_engineering_zoomcmap/week_2/src/deployment/*.py"},
+    { include = "course_data_engineering_zoomcmap/week_2/src/block/*.py"},
 ]
 
 [tool.poetry.dependencies]
