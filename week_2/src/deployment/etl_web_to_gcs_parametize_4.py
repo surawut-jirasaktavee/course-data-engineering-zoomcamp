@@ -79,4 +79,4 @@ if __name__ == "__main__":
         11,
     ]
 
-    etl_web_to_gcs(months, year, color)
+    etl_parent_flow(months, year, color)
