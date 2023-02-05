@@ -30,7 +30,8 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:  # pylint: disable=invalid-name
 
 
 @task()
-def write_local(df: pd.DataFrame, color: str, dataset_file: str) -> Path: # pylint: disable=invalid-name, redefined-outer-name)
+def write_local(
+    df: pd.DataFrame, color: str, dataset_file: str) -> Path:  # pylint: disable=invalid-name, redefined-outer-name)
     """Write DataFrame out locally as parquet file"""
     path = Path(f"data/{color}/{dataset_file}.parquet")
     data_dir = Path(f"data/{color}")
@@ -61,22 +62,42 @@ def etl_web_to_gcs(month: int, year: int, color: str) -> None:  # pylint: disabl
 
 
 @flow()
+def send_message():
+
+    """
+    Send message when the flow and sub task is complete
+    """
+
+    from prefect_slack import SlackWebhook  # pylint: disable=import-error, import-outside-toplevel
+    from prefect_slack.messages import send_incoming_webhook_message # pylint: disable=import-error, import-outside-toplevel
+
+    slack_webhook_block = SlackWebhook.load("slack-prefect-webhook-block")
+    send_incoming_webhook_message(
+        slack_webhook=slack_webhook_block,
+        text="Complete to download data from web and store in Google Cloud Storage",
+    )
+
+
+@flow()
 def etl_parent_flow(months: list[int], year: int, color: str):  # pylint: disable=redefined-outer-name
 
     """
     run parametize flow to main etl function
     """
-
-    for month in months:  # pylint: disable=redefined-outer-name
-        etl_web_to_gcs(month, year, color)
+    try:
+        for month in months:  # pylint: disable=redefined-outer-name
+            etl_web_to_gcs(month, year, color)
+        send_message()
+    except: # pylint: disable=bare-except
+        print("Flow is not complete...")
 
 
 if __name__ == "__main__":
 
-    color = "green" # pylint: disable=invalid-name
-    year = 2019 # 2020 # pylint: disable=invalid-name
+    color = "green"  # pylint: disable=invalid-name
+    year = 2019  # 2020 # pylint: disable=invalid-name
     months = [
         4,
-    ] # 11
+    ]  # 11
 
     etl_parent_flow(months, year, color)
