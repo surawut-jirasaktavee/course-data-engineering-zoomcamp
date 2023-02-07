@@ -8,8 +8,8 @@ ENV PREFECT_API_URL=http://host.docker.internal:4200/api
 
 RUN prefect config set PREFECT_API_URL="${PREFECT_API_URL}"
 
+RUN mkdir -p /opt/prefect/data
 RUN mkdir -p /opt/prefect/data/green
-
 RUN mkdir -p /opt/prefect/deployment
 
 COPY deployment/etl_web_to_gcs_parametize_4.py /opt/prefect/deployment/
