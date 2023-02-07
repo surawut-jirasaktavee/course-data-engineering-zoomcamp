@@ -7,10 +7,10 @@ import pandas as pd
 
 from prefect import flow, task  # pylint: disable=import-error
 from prefect_gcp.cloud_storage import GcsBucket  # pylint: disable=import-error
-from prefect.tasks import task_input_hash # pylint: disable=ungrouped-imports, import-error
+# from prefect.tasks import task_input_hash # pylint: disable=ungrouped-imports, import-error
 
 
-@task(retries=3, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
+@task(retries=3) #, cache_key_fn=task_input_hash, cache_expiration=timedelta(days=1))
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
 
