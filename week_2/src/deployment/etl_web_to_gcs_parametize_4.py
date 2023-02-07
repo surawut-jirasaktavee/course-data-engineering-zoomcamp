@@ -14,8 +14,12 @@ from prefect_gcp.cloud_storage import GcsBucket  # pylint: disable=import-error
 def fetch(dataset_url: str) -> pd.DataFrame:
     """Read taxi data from web into pandas DataFrame"""
 
-    df = pd.read_csv(dataset_url)  # pylint: disable=invalid-name
-    return df
+    try:
+        print(f"Start download file from the given url: {dataset_url}")
+        df = pd.read_csv(dataset_url)  # pylint: disable=invalid-name
+        return df
+    except Exception as e: # pylint: disable=invalid-name
+        print(f"something went wrong with: {e}") # pylint: disable=invalid-name
 
 
 @task(log_prints=True)
@@ -55,6 +59,8 @@ def etl_web_to_gcs(month: int, year: int, color: str) -> None:  # pylint: disabl
     dataset_file = f"{color}_tripdata_{year}-{month:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"  # pylint: disable=line-too-long
 
+    # https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-4.csv.gz
+    
     df = fetch(dataset_url)  # pylint: disable=invalid-name
     df_clean = clean(df)
     path = write_local(df_clean, color, dataset_file)
