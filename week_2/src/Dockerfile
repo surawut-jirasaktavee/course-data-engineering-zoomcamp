@@ -12,4 +12,4 @@ RUN mkdir -p /opt/prefect/data/green
 
 RUN mkdir -p /opt/prefect/deployment
 
-COPY deployment /opt/prefect/deployment
+COPY deployment/etl_web_to_gcs_parametize_4.py /opt/prefect/deployment/
