@@ -27,6 +27,9 @@ def clean(df: pd.DataFrame) -> pd.DataFrame:  # pylint: disable=invalid-name
     """Fix dtype issues"""
     df["pickup_datetime"] = pd.to_datetime(df["pickup_datetime"])
     df["dropOff_datetime"] = pd.to_datetime(df["dropOff_datetime"])
+    df["PUlocationID"] = df["PUlocationID"].astype('float')
+    df["DOlocationID"] = df["DOlocationID"].astype('float')
+    df["SR_Flag"] = df["SR_Flag"].astype('float')
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
