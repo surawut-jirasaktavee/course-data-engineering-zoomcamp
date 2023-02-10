@@ -11,7 +11,8 @@ tags:
 - github-storage
 - web-to-gcs
 parameters:
-  months: 12
+  months:
+  - 12
   year: 2019
   dataset_name: fhv_tripdata
 schedule: null

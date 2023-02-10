@@ -89,7 +89,7 @@ def trip_data_2019_etl_parent_flow(months: list[int], year: int, dataset_name: s
     run parametize flow to main etl function
     """
     try:
-        for month in range(1, months + 1):  # pylint: disable=redefined-outer-name
+        for month in months:  # pylint: disable=redefined-outer-name
             etl_web_to_gcs(month, year, dataset_name)
         send_message()
     except: # pylint: disable=bare-except
@@ -101,7 +101,7 @@ if __name__ == "__main__":
     dataset_name = "fhv_tripdata"  # pylint: disable=invalid-name
     year = 2019  # pylint: disable=invalid-name
     months = [
-        12
+        1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
     ] # pylint: disable=invalid-name
   
     trip_data_2019_etl_parent_flow(months, year, dataset_name)
