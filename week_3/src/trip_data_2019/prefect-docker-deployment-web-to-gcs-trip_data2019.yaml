@@ -28,7 +28,7 @@ infrastructure:
   labels: {}
   name: null
   command: null
-  image: premdocker2022/prefect-flow:v1
+  image: premdocker2022/prefect-flow:fhv_tripdata_v1
   image_pull_policy: ALWAYS
   image_registry: null
   networks: []
@@ -36,8 +36,8 @@ infrastructure:
   auto_remove: true
   volumes: []
   stream_output: true
-  _block_document_id: f29aa8af-97d9-4072-b8f9-5a1cd60b0727
-  _block_document_name: container-prefect-flow
+  _block_document_id: 931335bc-bd4c-4a94-a50a-39300b62d8f5
+  _block_document_name: fhv-tripdata-container-prefect-flow
   _is_anonymous: false
   block_type_slug: docker-container
   _block_type_slug: docker-container
@@ -51,7 +51,7 @@ storage:
   block_type_slug: github
   _block_type_slug: github
 path: ''
-entrypoint: week_3/src/trip_data_2019/etl_web_to_gcs.py:etl_parent_flow
+entrypoint: week_3/src/trip_data_2019/etl_web_to_gcs.py:trip_data_2019_etl_parent_flow
 parameter_openapi_schema:
   title: Parameters
   type: object
