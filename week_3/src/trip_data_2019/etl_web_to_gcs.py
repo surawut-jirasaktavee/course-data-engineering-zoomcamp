@@ -25,8 +25,8 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 @task(log_prints=True)
 def clean(df: pd.DataFrame) -> pd.DataFrame:  # pylint: disable=invalid-name
     """Fix dtype issues"""
-    df["tpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
-    df["tpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
+    df["pickup_datetime"] = pd.to_datetime(df["pickup_datetime"])
+    df["dropOff_datetime"] = pd.to_datetime(df["dropOff_datetime"])
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
@@ -56,7 +56,7 @@ def write_gcs(path: Path) -> None:
 def etl_web_to_gcs(month: int, year: int, dataset_name: str="fhv_tripdata") -> None:  # pylint: disable=redefined-outer-name
     """The main ETL function"""
 
-    dataset_file = f"{dataset_name}_{year}-{month}"
+    dataset_file = f"{dataset_name}_{year}-{month:02}"
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/fhv/{dataset_file}.csv.gz"  # pylint: disable=line-too-long    
    
     df = fetch(dataset_url)  # pylint: disable=invalid-name
