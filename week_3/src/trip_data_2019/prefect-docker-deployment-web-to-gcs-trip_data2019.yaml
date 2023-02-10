@@ -1,0 +1,77 @@
+###
+### A complete description of a Prefect Deployment for flow 'trip-data-2019-etl-parent-flow'
+###
+name: trip_data_2019-wh-docker-flow
+description: load data from web and save it to gcs
+version: '1'
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags:
+- docker-infra
+- github-storage
+- web-to-gcs
+parameters:
+  months: 12
+  year: 2019
+  dataset_name: fhv_tripdata
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: trip-data-2019-etl-parent-flow
+manifest_path: null
+infrastructure:
+  type: docker-container
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  image: premdocker2022/prefect-flow:v1
+  image_pull_policy: ALWAYS
+  image_registry: null
+  networks: []
+  network_mode: null
+  auto_remove: true
+  volumes: []
+  stream_output: true
+  _block_document_id: f29aa8af-97d9-4072-b8f9-5a1cd60b0727
+  _block_document_name: container-prefect-flow
+  _is_anonymous: false
+  block_type_slug: docker-container
+  _block_type_slug: docker-container
+storage:
+  repository: https://github.com/surawut-jirasaktavee/course-data-engineering-zoomcamp
+  reference: main
+  access_token: null
+  _block_document_id: f55f5149-bbf8-428e-86fd-ee9590cc1669
+  _block_document_name: github-prefect-flow
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
+entrypoint: week_3/src/trip_data_2019/etl_web_to_gcs.py:etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      position: 1
+      type: integer
+    dataset_name:
+      title: dataset_name
+      position: 2
+      type: string
+  required:
+  - months
+  - year
+  - dataset_name
+  definitions: null
