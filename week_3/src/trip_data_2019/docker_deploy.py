@@ -20,7 +20,24 @@ docker_dep = Deployment.build_from_flow(
     work_queue_name="default",
     path="",
     entrypoint="week_3/src/trip_data_2019/etl_web_to_gcs.py:trip_data_2019_etl_parent_flow",
-    parameters={"months": [12], "year": 2019, "dataset_name": "fhv_tripdata"},
+    parameters={
+        "months": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+        ],
+        "year": 2019,
+        "dataset_name": "fhv_tripdata",
+    },
     output="./week_3/src/trip_data_2019/prefect-docker-deployment-web-to-gcs-trip_data2019.yaml",
 )
 
