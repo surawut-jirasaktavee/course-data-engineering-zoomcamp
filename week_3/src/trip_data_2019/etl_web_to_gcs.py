@@ -100,6 +100,8 @@ if __name__ == "__main__":
 
     dataset_name = "fhv_tripdata"  # pylint: disable=invalid-name
     year = 2019  # pylint: disable=invalid-name
-    months = 12 # pylint: disable=invalid-name
+    months = [
+        12
+    ] # pylint: disable=invalid-name
   
     trip_data_2019_etl_parent_flow(months, year, dataset_name)
