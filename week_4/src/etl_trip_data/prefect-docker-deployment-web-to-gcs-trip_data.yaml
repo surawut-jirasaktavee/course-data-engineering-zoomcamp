@@ -1,0 +1,97 @@
+###
+### A complete description of a Prefect Deployment for flow 'trip-data-etl-parent-flow'
+###
+name: trip_data-wh-docker-flow
+description: load data from web and save it to gcs
+version: '1'
+# The work queue that will handle this deployment's runs
+work_queue_name: default
+tags:
+- docker-infra
+- github-storage
+- web-to-gcs
+parameters:
+  months:
+  - 1
+  - 2
+  - 3
+  - 4
+  - 5
+  - 6
+  - 7
+  - 8
+  - 9
+  - 10
+  - 11
+  - 12
+  year:
+  - 2019
+  - 2020
+  dataset_name:
+  - yellow
+  - green
+schedule: null
+infra_overrides: {}
+
+###
+### DO NOT EDIT BELOW THIS LINE
+###
+flow_name: trip-data-etl-parent-flow
+manifest_path: null
+infrastructure:
+  type: docker-container
+  env: {}
+  labels: {}
+  name: null
+  command: null
+  image: premdocker2022/prefect-flow:trip_data_all_v1
+  image_pull_policy: ALWAYS
+  image_registry: null
+  networks: []
+  network_mode: null
+  auto_remove: true
+  volumes: []
+  stream_output: true
+  _block_document_id: d0736a90-ea38-4b41-b5de-a11dc89cb034
+  _block_document_name: tripdata-all-container-prefect-flow
+  _is_anonymous: false
+  block_type_slug: docker-container
+  _block_type_slug: docker-container
+storage:
+  repository: https://github.com/surawut-jirasaktavee/course-data-engineering-zoomcamp
+  reference: main
+  access_token: null
+  _block_document_id: f55f5149-bbf8-428e-86fd-ee9590cc1669
+  _block_document_name: github-prefect-flow
+  _is_anonymous: false
+  block_type_slug: github
+  _block_type_slug: github
+path: ''
+entrypoint: week_4/src/etl_trip_data/etl_web_to_gcs.py:trip_data_etl_parent_flow
+parameter_openapi_schema:
+  title: Parameters
+  type: object
+  properties:
+    months:
+      title: months
+      position: 0
+      type: array
+      items:
+        type: integer
+    year:
+      title: year
+      position: 1
+      type: array
+      items:
+        type: integer
+    colors:
+      title: colors
+      position: 2
+      type: array
+      items:
+        type: string
+  required:
+  - months
+  - year
+  - colors
+  definitions: null
