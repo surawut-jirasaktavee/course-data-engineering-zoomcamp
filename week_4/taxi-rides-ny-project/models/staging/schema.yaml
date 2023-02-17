@@ -1,0 +1,11 @@
+version: 2
+
+sources:
+  - name: staging
+    database: winter-campus-375209
+    schema: taxi_trips_dataset
+
+    tables:
+      - name: green_tripdata
+      - name: yellow_tripdata
+    
