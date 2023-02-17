@@ -35,8 +35,8 @@ docker_dep = Deployment.build_from_flow(
             11,
             12,
         ],
-        "year": [2019, 2020],
-        "dataset_name": ["yellow", "green"]
+        "years": [2019, 2020],
+        "colors": ["yellow", "green"]
     },
     output="./prefect-docker-deployment-web-to-gcs-trip_data.yaml",
 )

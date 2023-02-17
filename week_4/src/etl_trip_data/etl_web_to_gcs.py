@@ -91,7 +91,7 @@ def send_message():
 
 
 @flow()
-def trip_data_etl_parent_flow(months: list[int], year: list[int], colors: list[str]):  # pylint: disable=redefined-outer-name
+def trip_data_etl_parent_flow(months: list[int], years: list[int], colors: list[str]):  # pylint: disable=redefined-outer-name
 
     """
     run parametize flow to main etl function
@@ -108,10 +108,10 @@ def trip_data_etl_parent_flow(months: list[int], year: list[int], colors: list[s
 
 if __name__ == "__main__":
 
-    color = ["yellow", "green"]  # pylint: disable=invalid-name
+    colors = ["yellow", "green"]  # pylint: disable=invalid-name
     years = [2019, 2020]  # pylint: disable=invalid-name
     months = [
         1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12
     ] # pylint: disable=invalid-name
  
-    trip_data_etl_parent_flow(months, years, color)
+    trip_data_etl_parent_flow(months, years, colors)
