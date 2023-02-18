@@ -33,5 +33,14 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   taxi_trips_ny:
-    # Applies to all files under models/example/
+    # Applies to all files under models/.../
+    staging:
+      materialized: view
+    core:
+      materialized: table
 
+seeds:
+  taxi_rides_ny:
+    taxi_zone_lookup:
+      +column_types:
+        locationid: numeric

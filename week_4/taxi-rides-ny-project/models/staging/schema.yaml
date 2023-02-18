@@ -7,5 +7,5 @@ sources:
 
     tables:
       - name: external_green_tripdata
-      - name: extenal_yellow_tripdata
+      - name: external_yellow_tripdata
     
