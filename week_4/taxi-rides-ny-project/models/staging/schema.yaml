@@ -6,6 +6,6 @@ sources:
     schema: taxi_trips_dataset
 
     tables:
-      - name: green_tripdata
-      - name: yellow_tripdata
+      - name: external_green_tripdata
+      - name: extenal_yellow_tripdata
     
