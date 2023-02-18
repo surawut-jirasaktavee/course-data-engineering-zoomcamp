@@ -29,10 +29,30 @@ def clean(df: pd.DataFrame, color: str) -> pd.DataFrame:  # pylint: disable=inva
     if color == "green":
         df["lpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
         df["lpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
+   
+        cols = [
+            "passenger_count", "trip_distance", "fare_amount", "extra", "mta_tax",
+            "tip_amount", "tolls_amount", "ehail_fee", "improvement_surcharge",
+            "total_amount", "payment_type", "trip_type", "congestion_surcharge"]
+       
+        for col in cols:
+            df[col] = df[col].astype('float')
+            
         return df
+    
     elif color == "yellow":
         df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
         df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
+        df["passenger_count"] = df["passenger_count"].astype('float')
+        
+        cols = [
+            "payment_type", "fare_amount", "extra", "mta_tax", "tip_amount",
+            "tolls_amount", "improvement_surcharge", "total_amount", "congestion_surcharge"
+        ]
+        
+        for col in cols:
+            df[col] = df[col].astype('float')
+        
         return df
     
     print(df.head(2))
