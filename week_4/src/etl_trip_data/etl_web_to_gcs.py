@@ -25,31 +25,31 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 @task(log_prints=True)
 def clean(df: pd.DataFrame, color: str) -> pd.DataFrame:  # pylint: disable=invalid-name, redefined-outer-name
     """Fix dtype issues"""
-   
-    TABLES = [key for key, val in tables.items()]
     
-    if color == "green":
-        df["lpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
-        df["lpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
-        
-        for schema in TABLES["green"]["schema"]:
-            col = schema["name"]
-            col_type = schema["type"]
-            df[col] = df[col].astype(col_type)
+    for key in [key for key, val in tables.items()]:
+        TABLES = tables.get(key)
+  
+        if (color == "green") & (TABLES["color"] == "green"):
+            df["lpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
+            df["lpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
             
-        return df
+            for schema in TABLES["schema"]:
+                col = schema["name"]
+                col_type = schema["type"]
+                df[col] = df[col].astype(col_type)
+                
+            return df
     
-    elif color == "yellow":
-        df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
-        df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
-        df["passenger_count"] = df["passenger_count"].astype('float')
-       
-        for schema in TABLES["yellow"]["schema"]:
-            col = schema["name"]
-            col_type = schema["type"]
-            df[col] = df[col].astype(col_type)
+        elif color == "yellow" & (TABLES["color"] == "yellow"):
+            df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
+            df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
         
-        return df
+            for schema in TABLES["yellow"]["schema"]:
+                col = schema["name"]
+                col_type = schema["type"]
+                df[col] = df[col].astype(col_type)
+            
+            return df
         
     print(df.head(2))
     print(f"columns: {df.dtypes}")

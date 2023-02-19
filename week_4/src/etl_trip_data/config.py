@@ -1,5 +1,6 @@
 tables = {
     "green": {
+        "color": "green",
         "schema": [
             {"name": "VendorID", "mode": "NULLABLE", "type": "float"},
             # {"name": "lpep_pickup_datetime", "mode": "NULLABLE", "type": "TIMESTAMP"},
@@ -24,6 +25,7 @@ tables = {
         ]
     },
     "yellow": {
+        "color": "yellow",
         "schema": [
             {"name": "VendorID", "mode": "NULLABLE", "type": "float"},
             # {"name": "tpep_pickup_datetime", "mode": "NULLABLE", "type": "TIMESTAMP"},
