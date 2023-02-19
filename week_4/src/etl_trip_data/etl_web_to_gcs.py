@@ -2,7 +2,7 @@
 # pylint: disable=missing-module-docstring
 from pathlib import Path
 from datetime import timedelta  # pylint: disable=import-error
-
+from config import tables
 import pandas as pd
 
 from prefect import flow, task  # pylint: disable=import-error
@@ -25,8 +25,6 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 @task(log_prints=True)
 def clean(df: pd.DataFrame, color: str) -> pd.DataFrame:  # pylint: disable=invalid-name, redefined-outer-name
     """Fix dtype issues"""
-
-    from config import tables
     
     tables = [key for key, val in tables.items()]
     

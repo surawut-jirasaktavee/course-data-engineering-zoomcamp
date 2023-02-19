@@ -11,6 +11,3 @@ RUN prefect config set PREFECT_API_URL="${PREFECT_API_URL}"
 RUN mkdir -p /opt/prefect/data
 RUN mkdir -p /opt/prefect/data/trip_data_all
 RUN mkdir -p /opt/prefect/trip_data_all
-
-COPY etl_trip_data/etl_web_to_gcs.py /opt/prefect/trip_data_all/
-COPY etl_trip_data/config.py /opt/prefect/trip_data_all/
