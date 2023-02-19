@@ -1,0 +1,48 @@
+tables = {
+    "green": {
+        "schema": [
+            {"name": "VendorID", "mode": "NULLABLE", "type": "float"},
+            # {"name": "lpep_pickup_datetime", "mode": "NULLABLE", "type": "TIMESTAMP"},
+            # {"name": "lpep_dropoff_datetime", "mode": "NULLABLE", "type": "TIMESTAMP"},
+            {"name": "store_and_fwd_flag", "mode": "NULLABLE", "type": "str"},
+            {"name": "RatecodeID", "mode": "NULLABLE", "type": "int"},
+            {"name": "PULocationID", "mode": "NULLABLE", "type": "int"},
+            {"name": "DOLocationID", "mode": "NULLABLE", "type": "int"},
+            {"name": "passenger_count", "mode": "NULLABLE", "type": "float"},
+            {"name": "trip_distance", "mode": "NULLABLE", "type": "float"},
+            {"name": "fare_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "extra", "mode": "NULLABLE", "type": "float"},
+            {"name": "mta_tax", "mode": "NULLABLE", "type": "float"},
+            {"name": "tip_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "tolls_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "ehail_fee", "mode": "NULLABLE", "type": "float"},
+            {"name": "improvement_surcharge", "mode": "NULLABLE", "type": "float"},
+            {"name": "total_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "payment_type", "mode": "NULLABLE", "type": "float"},
+            {"name": "trip_type", "mode": "NULLABLE", "type": "float"},
+            {"name": "congestion_surcharge", "mode": "NULLABLE", "type": "float"},
+        ]
+    },
+    "yellow": {
+        "schema": [
+            {"name": "VendorID", "mode": "NULLABLE", "type": "float"},
+            # {"name": "tpep_pickup_datetime", "mode": "NULLABLE", "type": "TIMESTAMP"},
+            # {"name": "tpep_dropoff_datetime", "mode": "NULLABLE", "type": "TIMESTAMP"},
+            {"name": "passenger_count", "mode": "NULLABLE", "type": "float"},
+            {"name": "trip_distance","mode": "NULLABLE","type": "float"},
+            {"name": "RatecodeID", "mode": "NULLABLE", "type": "int"},
+            {"name": "store_and_fwd_flag", "mode": "NULLABLE", "type": "str"},
+            {"name": "PULocationID", "mode": "NULLABLE", "type": "int"},
+            {"name": "DOLocationID", "mode": "NULLABLE", "type": "int"},
+            {"name": "payment_type", "mode": "NULLABLE", "type": "float"},
+            {"name": "fare_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "extra", "mode": "NULLABLE", "type": "float"},
+            {"name": "mta_tax", "mode": "NULLABLE", "type": "float"},
+            {"name": "tip_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "tolls_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "improvement_surcharge","mode": "NULLABLE","type": "float",},
+            {"name": "total_amount", "mode": "NULLABLE", "type": "float"},
+            {"name": "congestion_surcharge","mode": "NULLABLE","type": "float"},
+        ]
+    },
+}
