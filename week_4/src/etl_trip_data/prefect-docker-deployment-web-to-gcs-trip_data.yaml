@@ -24,10 +24,10 @@ parameters:
   - 10
   - 11
   - 12
-  year:
+  years:
   - 2019
   - 2020
-  dataset_name:
+  colors:
   - yellow
   - green
 schedule: null
@@ -78,8 +78,8 @@ parameter_openapi_schema:
       type: array
       items:
         type: integer
-    year:
-      title: year
+    years:
+      title: years
       position: 1
       type: array
       items:
@@ -92,6 +92,6 @@ parameter_openapi_schema:
         type: string
   required:
   - months
-  - year
+  - years
   - colors
   definitions: null
