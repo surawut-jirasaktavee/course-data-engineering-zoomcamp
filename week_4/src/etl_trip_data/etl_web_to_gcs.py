@@ -26,17 +26,18 @@ def fetch(dataset_url: str) -> pd.DataFrame:
 def clean(df: pd.DataFrame, color: str) -> pd.DataFrame:  # pylint: disable=invalid-name, redefined-outer-name
     """Fix dtype issues"""
 
+    from config import tables
+    
+    tables = [key for key, val in tables.items()]
+    
     if color == "green":
         df["lpep_pickup_datetime"] = pd.to_datetime(df["lpep_pickup_datetime"])
         df["lpep_dropoff_datetime"] = pd.to_datetime(df["lpep_dropoff_datetime"])
-   
-        cols = [
-            "passenger_count", "trip_distance", "fare_amount", "extra", "mta_tax",
-            "tip_amount", "tolls_amount", "ehail_fee", "improvement_surcharge",
-            "total_amount", "payment_type", "trip_type", "congestion_surcharge"]
-       
-        for col in cols:
-            df[col] = df[col].astype('float')
+        
+        for schema in tables["green"]["schema"]:
+            col = schema["name"]
+            col_type = schema["type"]
+            df[col] = df[col].astype(col_type)
             
         return df
     
@@ -45,21 +46,17 @@ def clean(df: pd.DataFrame, color: str) -> pd.DataFrame:  # pylint: disable=inva
         df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
         df["passenger_count"] = df["passenger_count"].astype('float')
         
-        cols = [
-            "payment_type", "fare_amount", "extra", "mta_tax", "tip_amount",
-            "tolls_amount", "improvement_surcharge", "total_amount", "congestion_surcharge"
-        ]
-        
-        for col in cols:
-            df[col] = df[col].astype('float')
+        for schema in tables["yellow"]["schema"]:
+            col = schema["name"]
+            col_type = schema["type"]
+            df[col] = df[col].astype(col_type)
         
         return df
-    
+        
     print(df.head(2))
     print(f"columns: {df.dtypes}")
     print(f"rows: {len(df)}")
     
-
 
 @task()
 def write_local(
@@ -88,7 +85,7 @@ def etl_web_to_gcs(month: int, year: int, color: str) -> None:  # pylint: disabl
     dataset_url = f"https://github.com/DataTalksClub/nyc-tlc-data/releases/download/{color}/{dataset_file}.csv.gz"  # pylint: disable=line-too-long
     
     # https://github.com/DataTalksClub/nyc-tlc-data/releases/download/yellow/yellow_tripdata_2019-01.csv.gz
-    # https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-01.csv.gz
+    # https://github.com/DataTalksClub/nyc-tlc-data/releases/download/green/green_tripdata_2019-04.csv.gz
     
     df = fetch(dataset_url)  # pylint: disable=invalid-name
     df_clean = clean(df, color)
