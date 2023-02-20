@@ -43,7 +43,7 @@ def clean(
 
             return df
 
-        elif color == "yellow" & (TABLES["color"] == "yellow"):
+        elif (color == "yellow") & (TABLES["color"] == "yellow"):
             df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
             df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
 
