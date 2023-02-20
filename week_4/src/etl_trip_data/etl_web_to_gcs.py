@@ -47,7 +47,7 @@ def clean(
             df["tpep_pickup_datetime"] = pd.to_datetime(df["tpep_pickup_datetime"])
             df["tpep_dropoff_datetime"] = pd.to_datetime(df["tpep_dropoff_datetime"])
 
-            for schema in TABLES["yellow"]["schema"]:
+            for schema in TABLES["schema"]:
                 col = schema["name"]
                 col_type = schema["type"]
                 df[col] = df[col].astype(col_type)
