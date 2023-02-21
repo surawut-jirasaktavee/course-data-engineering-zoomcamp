@@ -3,8 +3,8 @@
 with tripdata as 
 (
   select *,
-    row_number() over(partition by vendorid, lpep_pickup_datetime) as rn
-  from {{ source('staging','green_tripdata') }}
+    row_number() over(partition by cast(vendorid as integer), lpep_pickup_datetime) as rn
+  from {{ source('staging','external_green_tripdata') }}
   where vendorid is not null 
 )
 select
@@ -42,7 +42,7 @@ where rn = 1
 
 
 -- dbt build --m <model.sql> --var 'is_test_run: false'
-{% if var('is_test_run', default=true) %}
+{% if var('is_test_run', default=false) %}
 
   limit 100
 
