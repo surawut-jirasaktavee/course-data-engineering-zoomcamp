@@ -13,8 +13,8 @@ services:
       - SPARK_SSL_ENABLED=no
       - SPARK_MODE=worker
       - SPARK_MASTER_URL=spark://spark:7077
-      - SPARK_WORKER_MEMORY=1G
-      - SPARK_WORKER_CORES=1
+      - SPARK_WORKER_MEMORY=2G
+      - SPARK_WORKER_CORES=2
     ports:
       - '8080:8080'
       - '8081:8081'

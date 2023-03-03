@@ -34,3 +34,6 @@ ENV PYTHONPATH="${SPARK_HOME}/python/lib/py4j-0.10.9.5-src.zip:$PYTHONPATH"
 
 RUN mkdir -p ${HOME}/spark/data
 RUN mkdir -p ${HOME}/spark/code
+
+COPY requirements.txt /home/de-zoomcamp/spark/code
+RUN pip install -r /home/de-zoomcamp/spark/code/requirements.txt
