@@ -1,0 +1,6 @@
+avro
+requests
+faust
+fastavro
+kafka-python==1.4.6
+confluent_kafka
