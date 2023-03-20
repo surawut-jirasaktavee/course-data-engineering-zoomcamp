@@ -7,7 +7,7 @@ cd spark
 ./build_spark.sh
 ```
 
-Follow this blogpost to read more details about spark ![Medium blog](https://towardsdatascience.com/apache-spark-cluster-on-docker-ft-a-juyterlab-interface-418383c95445)
+Follow this blogpost to read more details about spark [Medium blog](https://towardsdatascience.com/apache-spark-cluster-on-docker-ft-a-juyterlab-interface-418383c95445)
 
 ## Create network and volume for docker
 
